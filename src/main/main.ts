@@ -2,6 +2,11 @@ import 'reflect-metadata';
 import { app, BrowserWindow } from 'electron';
 import { start } from './server';
 import { dev } from 'root/base/common/platform';
+const kill = require('kill-port');
+
+export function load(vanalandExtension: string) {
+  (global as any).__non_webpack_require__(vanalandExtension);
+}
 
 let mainWindow: Electron.BrowserWindow | null;
 
@@ -22,6 +27,11 @@ async function createWindow(): Promise<void> {
 }
 
 app.on('ready', async () => {
+  if (dev) {
+    await kill(8887);
+  } else {
+    await kill(8888);
+  }
   await start(!dev);
   await createWindow();
 });
