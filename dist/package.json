@@ -1,0 +1,23 @@
+{
+	"name": "umi-electron-boilerplate",
+	"version": "0.0.1",
+	"description": "Comic manager",
+	"main": "./main.bundle.js",
+	"egg": {
+		"typescript": true
+	},
+	"postinstall": "electron-builder install-app-deps",
+	"dependencies": {
+		"sharp": "^0.25.2",
+		"sqlite3": "^4.1.1",
+		"multer": "^1.4.2",
+		"class-transformer": "^0.2.3",
+		"class-validator": "^0.11.0",
+		"express": "latest",
+		"encoding": "latest",
+		"routing-controllers": "latest"
+	},
+	"scripts": {
+		"start": "electron ./main.bundle.js"
+	}
+}

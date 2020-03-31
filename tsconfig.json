@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "target": "es2018"
+  },
+  "include": ["src", "**/src/**/*.ts", "**/src/**/*.tsx", "webpack.config.js", "jest.config.js"],
+  "exclude": ["node_modules"]
+}
