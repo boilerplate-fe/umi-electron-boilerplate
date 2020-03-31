@@ -10,6 +10,7 @@ import { Container } from 'typedi';
 import * as express from 'express';
 import compression from 'compression';
 import { TestService } from '../services/testService';
+import 'root/services/node/sqliteService';
 
 process.on('uncaughtException', function(err) {
   console.log('UNCAUGHT EXCEPTION - keeping process alive:', err); // err.message is "foobar"
