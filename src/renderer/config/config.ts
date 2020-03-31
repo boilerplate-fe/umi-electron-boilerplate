@@ -16,7 +16,7 @@ export default {
   ],
   proxy: {
     '/api': {
-      target: 'http://localhost:8888',
+      target: 'http://localhost:8887',
       changeOrigin: true,
       pathRewrite: { '^/api': '/api' },
     },

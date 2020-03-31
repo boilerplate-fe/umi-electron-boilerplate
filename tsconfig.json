@@ -6,6 +6,9 @@
     "jsx": "react",
     "baseUrl": ".",
     "module": "ESNext",
+    "paths": {
+      "root/*": ["src/*"]
+    },
     "moduleResolution": "node",
     "noImplicitAny": true,
     "noImplicitThis": true,

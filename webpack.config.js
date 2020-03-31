@@ -28,7 +28,7 @@ const commonConfig = {
   node: { __dirname: false, __filename: false },
   resolve: {
     alias: {
-      va: srcPaths('src'),
+      root: srcPaths('src'),
     },
     extensions: ['.js', '.json', '.ts', '.tsx'],
   },
