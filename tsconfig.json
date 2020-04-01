@@ -16,6 +16,13 @@
     "sourceMap": true,
     "target": "es2018"
   },
-  "include": ["src", "**/src/**/*.ts", "**/src/**/*.tsx", "webpack.config.js", "jest.config.js"],
+  "include": [
+    "src",
+    "**/src/**/*.ts",
+    "**/src/**/*.tsx",
+    "webpack.config.js",
+    "jest.config.js",
+    "**/actions/**/*.js"
+  ],
   "exclude": ["node_modules"]
 }

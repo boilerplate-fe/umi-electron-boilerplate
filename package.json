@@ -85,6 +85,8 @@
     "umi-request": "^1.2.11"
   },
   "devDependencies": {
+    "@actions/core": "^1.2.3",
+    "@actions/github": "^2.1.1",
     "@diamondyuan/eslint-config-react-typescript": "^7.0.1",
     "@types/cheerio": "^0.22.16",
     "@types/classnames": "^2.2.9",

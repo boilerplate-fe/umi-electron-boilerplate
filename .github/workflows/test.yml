@@ -1,52 +1,32 @@
-name: Release
+# name: Release
 
-on:
-  push:
-    branches:
-      - master
+# on:
+#   push:
+#     branches:
+#       - master
 
-jobs:
-  build_on_win:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@master
-        with:
-          node-version: '10.x'
-      - name: install node tools
-        run: npm install --global --production windows-build-tools@4.0.0
-      - name: install node-gyp
-        run: npm install --global node-gyp@latest
-      - name: Set node config to use python2.7
-        run: npm config set python python2.7
-      - name: Set node config to set msvs_version to 2015
-        run: npm config set msvs_version 2015
-      - name: 安装依赖
-        run: npm install
-      - name: 编译项目
-        run: npm run build
-      - name: 打包 Windows 版本
-        run: npm run release:win
-      - name: 把文件压缩
-        run: npm run pack:win
-      - name: Create Release
-        id: create_release
-        continue-on-error: true
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: test
-          release_name: Test
-          draft: false
-          prerelease: false
-      - name: Upload Release Asset
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./out/umi-electron-boilerplate.zip
-          asset_name: umi-electron-boilerplate.zip
-          asset_content_type: application/zip
+# jobs:
+#   build_on_win:
+#     runs-on: windows-latest
+#     steps:
+#       - name: Create Release
+#         id: create_release
+#         uses: actions/create-release@v1
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         with:
+#           allow_duplicate: true
+#           tag_name: ${{ github.ref }}
+#           release_name: Release ${{ github.ref }}
+#           draft: false
+#           prerelease: false
+#       - name: Upload Release Asset
+#         id: upload-release-asset
+#         uses: actions/upload-release-asset@v1
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         with:
+#           upload_url: ${{ steps.create_release.outputs.upload_url }}
+#           asset_path: ./out/umi-electron-boilerplate.zip
+#           asset_name: umi-electron-boilerplate.zip
+#           asset_content_type: application/zip
