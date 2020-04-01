@@ -4,6 +4,7 @@
   "description": "Comic manager",
   "main": "dist/main.bundle.js",
   "scripts": {
+    "build:action": "yarn ncc build actions/release/src/index.js -o actions/release/dist",
     "start": "concurrently \"yarn start:main\" \"yarn start:renderer\"",
     "start:renderer": "cross-env BROWSER=none cross-env APP_ROOT=src/renderer umi dev",
     "start:main": "nodemon --watch dist/main.bundle.js --exec electron ./dist/main.bundle.js",
@@ -51,6 +52,7 @@
     "@ant-design/dark-theme": "^1.0.3",
     "@ant-design/icons": "^4.0.0-rc.0",
     "@shihengtech/hooks": "^0.0.6",
+    "@zeit/ncc": "^0.22.0",
     "antd": "^4.1.0",
     "babel-polyfill": "^6.26.0",
     "cheerio": "^1.0.0-rc.3",
