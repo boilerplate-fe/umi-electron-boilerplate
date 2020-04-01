@@ -1,7 +1,7 @@
 {
   "name": "umi-electron-boilerplate",
   "version": "0.0.1",
-  "description": "Comic manager",
+  "description": "umi-electron-boilerplate",
   "main": "dist/main.bundle.js",
   "scripts": {
     "build:action": "yarn ncc build actions/release/src/index.js -o actions/release/dist",
