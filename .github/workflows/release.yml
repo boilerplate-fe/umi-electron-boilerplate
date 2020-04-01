@@ -32,10 +32,11 @@ jobs:
       - name: Create Release
         id: create_release
         continue-on-error: true
-        uses: actions/create-release@v1
+        uses: ./actions/release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          allow_duplicate: true
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
           draft: false
