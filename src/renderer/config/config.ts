@@ -14,6 +14,13 @@ export default {
       },
     ],
   ],
+  routes: [
+    {
+      path: '/',
+      component: '../layouts/index',
+      routes: [{ path: '/', redirect: '/index' }],
+    },
+  ],
   proxy: {
     '/api': {
       target: 'http://localhost:8887',

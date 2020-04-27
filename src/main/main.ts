@@ -13,6 +13,7 @@ async function createWindow(): Promise<void> {
       devTools: true,
     },
   });
+  mainWindow.loadURL('http://localhost:8888');
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
