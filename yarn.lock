@@ -2154,7 +2154,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/node@*", "@types/node@^13.5.1":
+"@types/node@*":
   version "13.9.5"
   resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-13.9.5.tgz?cache=0&sync_timestamp=1585328008997&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-13.9.5.tgz#59738bf30b31aea1faa2df7f4a5f55613750cf00"
   integrity sha1-WXOL8wsxrqH6ot9/Sl9VYTdQzwA=
@@ -8046,13 +8046,6 @@ get-value@^2.0.3, get-value@^2.0.6:
   version "2.0.6"
   resolved "https://registry.npm.taobao.org/get-value/download/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
   integrity sha1-3BXKHGcjh8p2vTesCjlbogQqLCg=
-
-getmac@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.npm.taobao.org/getmac/download/getmac-5.1.0.tgz#0d5f872e1caffa25d5ec59baeaf42abc400d915c"
-  integrity sha1-DV+HLhyv+iXV7Fm66vQqvEANkVw=
-  dependencies:
-    "@types/node" "^13.5.1"
 
 getnpmregistry@^1.0.1:
   version "1.0.1"
