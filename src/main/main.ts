@@ -1,5 +1,7 @@
+import 'reflect-metadata';
 import { app, BrowserWindow } from 'electron';
-import { zip } from 'compressing';
+import { start } from './server';
+import { dev } from 'root/base/common/platform';
 
 let mainWindow: Electron.BrowserWindow | null;
 
@@ -20,7 +22,7 @@ async function createWindow(): Promise<void> {
 }
 
 app.on('ready', async () => {
-  console.log(zip);
+  await start(!dev);
   await createWindow();
 });
 

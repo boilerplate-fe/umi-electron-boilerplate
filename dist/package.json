@@ -6,7 +6,6 @@
 	"egg": {
 		"typescript": true
 	},
-	"postinstall": "electron-builder install-app-deps",
 	"dependencies": {
 		"sharp": "^0.25.2",
 		"sqlite3": "^4.1.1",
@@ -17,6 +16,7 @@
 		"encoding": "latest",
 		"routing-controllers": "latest"
 	},
+	"postinstall": "electron-builder install-app-deps",
 	"scripts": {
 		"start": "electron ./main.bundle.js"
 	}

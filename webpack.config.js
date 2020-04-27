@@ -36,7 +36,6 @@ const commonConfig = {
     new CopyPkgJsonPlugin({
       remove: ['scripts', 'devDependencies', 'build', 'dependencies'],
       replace: {
-        main: './main.bundle.js',
         dependencies: {
           sharp: '^0.25.2',
           sqlite3: '^4.1.1',
@@ -47,8 +46,9 @@ const commonConfig = {
           encoding: 'latest',
           'routing-controllers': 'latest',
         },
-        scripts: { start: 'electron ./main.bundle.js' },
+        main: './main.bundle.js',
         postinstall: 'electron-builder install-app-deps',
+        scripts: { start: 'electron ./main.bundle.js' },
       },
     }),
   ],
