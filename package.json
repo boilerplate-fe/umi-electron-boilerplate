@@ -34,10 +34,9 @@
       "app": "./dist",
       "output": "./out/"
     },
-    "asar": false,
     "win": {
       "target": "nsis",
-      "asar": false
+      "asar": true
     },
     "nsis": {
       "oneClick": false,
