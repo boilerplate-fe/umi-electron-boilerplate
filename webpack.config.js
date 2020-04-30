@@ -14,6 +14,7 @@ const commonConfig = {
   target: 'electron-main',
   externals: [
     {
+      log4js: `require('log4js')`,
       sharp: `require('sharp')`,
       sqlite3: `require('sqlite3')`,
       express: `require('express')`,
@@ -37,6 +38,7 @@ const commonConfig = {
       remove: ['scripts', 'devDependencies', 'build', 'dependencies'],
       replace: {
         dependencies: {
+          log4js: '^6.2.1',
           sharp: '^0.25.2',
           sqlite3: '^4.1.1',
           multer: '^1.4.2',
