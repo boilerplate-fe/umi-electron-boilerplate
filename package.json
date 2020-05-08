@@ -4,11 +4,12 @@
   "description": "umi-electron-boilerplate",
   "main": "dist/main.bundle.js",
   "scripts": {
+    "copy_package_json": "node scripts/copy_package_json.js",
     "build:action": "yarn ncc build actions/release/src/index.js -o actions/release/dist",
     "start": "concurrently \"yarn start:main\" \"yarn start:renderer\"",
     "start:renderer": "cross-env BROWSER=none cross-env APP_ROOT=src/renderer umi dev",
     "start:main": "nodemon --watch dist/main.bundle.js --exec electron ./dist/main.bundle.js",
-    "postinstall": "electron-builder install-app-deps",
+    "postinstall": "npm run copy_package_json electron && electron-builder install-app-deps",
     "build": "concurrently \"yarn build:main\" \"yarn build:renderer\"",
     "build:renderer": "cross-env APP_ROOT=src/renderer umi build",
     "build:main": "rimraf dist && cross-env NODE_ENV=production webpack --progress --colors",

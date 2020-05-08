@@ -22,7 +22,8 @@
     "**/src/**/*.tsx",
     "webpack.config.js",
     "jest.config.js",
-    "**/actions/**/*.js"
+    "**/actions/**/*.js",
+    "**/scripts/**/*.js"
   ],
   "exclude": ["node_modules"]
 }
