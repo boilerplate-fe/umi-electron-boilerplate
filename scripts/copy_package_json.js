@@ -1,19 +1,21 @@
-const fs = require('fs');
-const path = require('path');
-
 /**
  * Copy package.json to dist/package.json
  */
-
+const fs = require('fs');
+const path = require('path');
 /**
  * @type node or electron
  */
 const type = process.argv[2];
+const root = path.join(__dirname, '../');
+const { name, version, description } = JSON.parse(
+  fs.readFileSync(path.join(root, 'package.json'), 'utf-8')
+);
 
 const basementPackageJSON = {
-  name: 'umi-electron-boilerplate',
-  version: '0.0.1',
-  description: 'umi-electron-boilerplate',
+  name,
+  version,
+  description,
   dependencies: {
     log4js: '^6.2.1',
     sharp: '^0.25.2',
