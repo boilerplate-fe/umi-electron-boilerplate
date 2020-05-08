@@ -31,4 +31,3 @@ Thumbs.db
 dbname
 src/renderer/pages/.umi
 src/renderer/pages/.umi-production
-!dist/package.json
