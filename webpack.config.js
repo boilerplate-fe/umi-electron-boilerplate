@@ -1,4 +1,3 @@
-const CopyPkgJsonPlugin = require('copy-pkg-json-webpack-plugin');
 const path = require('path');
 
 function srcPaths(src) {
@@ -33,27 +32,7 @@ const commonConfig = {
     },
     extensions: ['.js', '.json', '.ts', '.tsx'],
   },
-  plugins: [
-    new CopyPkgJsonPlugin({
-      remove: ['scripts', 'devDependencies', 'build', 'dependencies'],
-      replace: {
-        dependencies: {
-          log4js: '^6.2.1',
-          sharp: '^0.25.2',
-          sqlite3: '^4.1.1',
-          multer: '^1.4.2',
-          'class-transformer': '^0.2.3',
-          'class-validator': '^0.11.0',
-          express: 'latest',
-          encoding: 'latest',
-          'routing-controllers': 'latest',
-        },
-        main: './main.bundle.js',
-        postinstall: 'electron-builder install-app-deps',
-        scripts: { start: 'electron ./main.bundle.js' },
-      },
-    }),
-  ],
+  plugins: [],
   module: {
     rules: [
       {
