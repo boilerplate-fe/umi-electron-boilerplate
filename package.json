@@ -1,6 +1,6 @@
 {
   "name": "umi-electron-boilerplate",
-  "version": "0.0.1",
+  "version": "0.0.12",
   "description": "umi-electron-boilerplate",
   "main": "dist/main.bundle.js",
   "scripts": {
