@@ -18,7 +18,6 @@
     "release:win": "electron-builder build --win --x64 -p never",
     "release:mac": "electron-builder build --mac --x64 -p never",
     "pack:win": "node scripts/pack.js",
-    "release": "yarn build && yarn release:win && yarn release:mac",
     "lint": "eslint --ext .js,.ts,.tsx ."
   },
   "egg": {
@@ -115,6 +114,7 @@
     "@typescript-eslint/eslint-plugin": "^2.19.0",
     "@typescript-eslint/parser": "^2.19.0",
     "babel-eslint": "^10.0.3",
+    "chokidar": "^3.4.0",
     "concurrently": "^5.0.0",
     "copy-webpack-plugin": "^5.1.1",
     "cross-env": "^5.2.0",

@@ -30,7 +30,9 @@ async function createWindow(): Promise<void> {
 app.on('ready', async () => {
   logger.info('app ready');
   await start(!dev);
-  await createWindow();
+  if (!process.env.NO_WINDOW) {
+    await createWindow();
+  }
 });
 
 app.on('window-all-closed', () => {
