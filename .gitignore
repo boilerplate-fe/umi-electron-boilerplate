@@ -31,3 +31,4 @@ Thumbs.db
 dbname
 src/renderer/pages/.umi
 src/renderer/pages/.umi-production
+scripts/lib/

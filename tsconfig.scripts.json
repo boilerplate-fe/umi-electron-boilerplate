@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "target": "es2018",
+    "outDir": "./scripts/lib",
+    "rootDir": "./scripts/src",
+    "types": ["@types/node"]
+  },
+  "include": ["./scripts/src/**/*.ts"],
+  "exclude": ["node_modules/**"]
+}

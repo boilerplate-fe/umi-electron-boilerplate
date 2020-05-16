@@ -1,6 +1,7 @@
 const chokidar = require('chokidar');
 const cp = require('child_process');
-const { join, resolve } = require('path');
+const { join } = require('path');
+const { startRender } = require('./lib/renderer');
 
 const dist = join(__dirname, '..', 'dist');
 const main = join(dist, 'main.bundle.js');
@@ -36,19 +37,13 @@ watcher.on('change', () => {
   electronManager.exit();
 });
 
-const umiBin = resolve(__dirname, '..', 'node_modules', '.bin', 'umi');
-const rendererEnv = Object.create(process.env);
-rendererEnv.APP_ROOT = 'src/renderer';
-rendererEnv.PORT = 8888;
-rendererEnv.BROWSER = 'NONE';
-
-const renderProgress = cp.spawn(umiBin, ['dev'], {
-  cwd: join(__dirname, '../'),
-  env: rendererEnv,
+const exitRender = startRender({
+  cwd: join(__dirname, '..'),
+  port: 8888,
+  BROWSER: 'NONE',
+  APP_ROOT: 'src/renderer',
 });
 
-renderProgress.stdout.on('data', buf => {
-  if (buf.toString().includes('DONE')) {
-    console.log('DONE');
-  }
+process.on('SIGINT', () => {
+  exitRender();
 });
