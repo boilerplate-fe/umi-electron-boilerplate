@@ -18,7 +18,7 @@ export default {
     {
       path: '/',
       component: '../layouts/index',
-      routes: [{ path: '/', redirect: '/index' }],
+      routes: [{ path: '/', component: './index' }],
     },
   ],
   proxy: {
