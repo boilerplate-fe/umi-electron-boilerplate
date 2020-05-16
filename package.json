@@ -6,7 +6,7 @@
   "scripts": {
     "copy_package_json": "node scripts/copy_package_json.js",
     "build:action": "yarn ncc build actions/release/src/index.js -o actions/release/dist",
-    "start": "concurrently \"yarn start:main\" \"yarn start:renderer\"",
+    "start": "node scripts/start.js",
     "start:renderer": "cross-env BROWSER=none cross-env APP_ROOT=src/renderer umi dev",
     "start:main": "nodemon --watch dist/main.bundle.js --exec electron ./dist/main.bundle.js",
     "postinstall": "npm run copy_package_json electron && electron-builder install-app-deps",
