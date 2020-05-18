@@ -19,7 +19,7 @@ export function startRender(argv: StartRenderProps) {
     env: rendererEnv,
     silent: true,
   });
-  renderProgress.on('message', e => {
+  renderProgress.on('message', (e: { type: string }) => {
     if (e.type === 'DONE') {
       console.log('umi server start');
     }

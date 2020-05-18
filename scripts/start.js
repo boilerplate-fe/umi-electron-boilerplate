@@ -15,9 +15,9 @@ class ElectronManager {
     });
     this.electronProcess = electronProcess;
     this.electronProcess.on('exit', () => {
-      setImmediate(() => {
-        this.start();
-      });
+      // setImmediate(() => {
+      //   this.start();
+      // });
     });
   }
 
