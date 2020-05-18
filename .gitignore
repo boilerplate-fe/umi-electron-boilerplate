@@ -29,6 +29,7 @@ Thumbs.db
 .DS_Store
 ._*
 dbname
-src/renderer/pages/.umi
+src/renderer/.umi
 src/renderer/pages/.umi-production
 scripts/lib/
+.umi

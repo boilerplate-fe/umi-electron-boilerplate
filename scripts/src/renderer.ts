@@ -1,6 +1,6 @@
 import { fork } from 'child_process';
 
-const umiDev = require.resolve('umi/lib/scripts/realDev.js');
+const umiDev = require.resolve('umi/lib/forkedDev');
 
 interface StartRenderProps {
   cwd: string;
@@ -20,7 +20,9 @@ export function startRender(argv: StartRenderProps) {
     silent: true,
   });
   renderProgress.on('message', e => {
-    console.log(e);
+    if (e.type === 'DONE') {
+      console.log('umi server start');
+    }
   });
 
   return () => {

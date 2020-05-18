@@ -7,7 +7,8 @@
     "baseUrl": ".",
     "module": "ESNext",
     "paths": {
-      "root/*": ["src/*"]
+      "root/*": ["src/*"],
+      "@@/*": ["src/.umi/*"]
     },
     "moduleResolution": "node",
     "noImplicitAny": true,

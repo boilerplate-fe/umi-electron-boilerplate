@@ -1,19 +1,13 @@
-export default {
-  history: 'browser',
+import { defineConfig } from 'umi';
+
+export default defineConfig({
+  history: { type: 'browser' },
   outputPath: `../../dist/renderer`,
   publicPath: './',
-  plugins: [
-    [
-      'umi-plugin-react',
-      {
-        pwa: true,
-        antd: true,
-        dva: false,
-        title: 'umi-electron-boilerplate',
-        hardSource: false,
-      },
-    ],
-  ],
+  title: 'umi-electron-boilerplate',
+  plugins: ['@umijs/plugin-antd'],
+  dva: false,
+  antd: {},
   routes: [
     {
       path: '/',
@@ -28,4 +22,4 @@ export default {
       pathRewrite: { '^/api': '/api' },
     },
   },
-};
+});
