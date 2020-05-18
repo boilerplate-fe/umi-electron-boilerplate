@@ -1,5 +1,6 @@
-import { resolve } from 'path';
-import { spawn } from 'child_process';
+import { fork } from 'child_process';
+
+const umiDev = require.resolve('umi/lib/scripts/realDev.js');
 
 interface StartRenderProps {
   cwd: string;
@@ -9,19 +10,17 @@ interface StartRenderProps {
 }
 
 export function startRender(argv: StartRenderProps) {
-  const umiBin = resolve(argv.cwd, 'node_modules', '.bin', 'umi');
   const rendererEnv = Object.create(process.env);
   rendererEnv.APP_ROOT = argv.APP_ROOT;
   rendererEnv.PORT = argv.port;
   rendererEnv.BROWSER = argv.BROWSER;
-  const renderProgress = spawn(umiBin, ['dev'], {
+  const renderProgress = fork(umiDev, [], {
     cwd: argv.cwd,
     env: rendererEnv,
+    silent: true,
   });
-  renderProgress.stdout.on('data', buf => {
-    if (buf.toString().includes('DONE')) {
-      console.log('DONE');
-    }
+  renderProgress.on('message', e => {
+    console.log(e);
   });
 
   return () => {
