@@ -1,49 +1,49 @@
 const chokidar = require('chokidar');
 const cp = require('child_process');
 const { join } = require('path');
-const { startRender } = require('./lib/renderer');
-
+const getPort = require('get-port');
+const net = require('net');
 const dist = join(__dirname, '..', 'dist');
 const main = join(dist, 'main.bundle.js');
 
 class ElectronManager {
-  start() {
+  start({ port }) {
     const electronProcess = cp.spawn(require('electron').toString(), [main], {
       env: {
+        SOCKET_PORT: port,
         NO_WINDOW: true,
       },
     });
     this.electronProcess = electronProcess;
-    this.electronProcess.on('exit', () => {
-      // setImmediate(() => {
-      //   this.start();
-      // });
+    this.electronProcess.on('exit', code => {
+      if (code === 100) {
+        this.start({ port });
+      }
     });
-  }
-
-  exit() {
-    this.electronProcess.kill('SIGINT');
   }
 }
 
 const electronManager = new ElectronManager();
-electronManager.start();
-
 const watcher = chokidar.watch('main.bundle.js', {
   cwd: dist,
 });
 
-watcher.on('change', () => {
-  electronManager.exit();
-});
-
-const exitRender = startRender({
-  cwd: join(__dirname, '..'),
-  port: 8888,
-  BROWSER: 'NONE',
-  APP_ROOT: 'src/renderer',
-});
-
-process.on('SIGINT', () => {
-  exitRender();
-});
+(async () => {
+  const SOCKET_PORT = await getPort();
+  let socket;
+  const server = net.createServer();
+  server.on('connection', _socket => {
+    socket = _socket;
+    socket.setEncoding('utf-8');
+    socket.on('close', () => {
+      socket = null;
+    });
+  });
+  server.listen(SOCKET_PORT);
+  watcher.on('change', () => {
+    if (socket) {
+      socket.write('exit');
+    }
+  });
+  electronManager.start({ port: SOCKET_PORT });
+})();

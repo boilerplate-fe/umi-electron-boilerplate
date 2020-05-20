@@ -5,6 +5,7 @@ import { app, BrowserWindow } from 'electron';
 import { start } from './server';
 import { dev } from 'root/base/common/platform';
 import { LoggerService } from 'root/services/log/node/logManager';
+import { connect } from 'net';
 
 const logger = new LoggerService('main');
 Container.set(ILoggerService, logger);
@@ -46,3 +47,18 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+if (process.env.SOCKET_PORT) {
+  const socket = connect({
+    port: parseInt(process.env.SOCKET_PORT!, 10),
+  });
+  socket.on('connect', () => {
+    socket.setEncoding('utf-8');
+  });
+
+  socket.on('data', (message: string) => {
+    if (message === 'exit') {
+      app.exit(100);
+    }
+  });
+}
