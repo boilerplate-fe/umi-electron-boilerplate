@@ -35,7 +35,6 @@ export class CustomErrorHandler implements ExpressErrorMiddlewareInterface {
 export async function start(prod: boolean) {
   const temp = await Container.get(ISqliteService);
   await temp.init();
-  console.log(await temp.get().all('SELECT rowid AS id, info FROM lorem'));
   let expressApp = express();
   expressApp.use(compression());
   // eslint-disable-next-line react-hooks/rules-of-hooks

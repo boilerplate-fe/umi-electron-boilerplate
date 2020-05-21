@@ -5,6 +5,7 @@ const getPort = require('get-port');
 const net = require('net');
 const dist = join(__dirname, '..', 'dist');
 const main = join(dist, 'main.bundle.js');
+const { startRender } = require('./lib/renderer');
 
 class ElectronManager {
   start({ port }) {
@@ -15,6 +16,9 @@ class ElectronManager {
       },
     });
     this.electronProcess = electronProcess;
+    this.electronProcess.stdout.on('data', e => {
+      console.log(e.toString());
+    });
     this.electronProcess.on('exit', code => {
       if (code === 100) {
         this.start({ port });
@@ -46,4 +50,11 @@ const watcher = chokidar.watch('main.bundle.js', {
     }
   });
   electronManager.start({ port: SOCKET_PORT });
+
+  startRender({
+    cwd: join(__dirname, '..'),
+    port: 8888,
+    BROWSER: 'NONE',
+    APP_ROOT: 'src/renderer',
+  });
 })();
