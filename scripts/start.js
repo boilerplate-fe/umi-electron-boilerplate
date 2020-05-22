@@ -9,12 +9,16 @@ const { startRender } = require('./lib/renderer');
 
 class ElectronManager {
   start({ port }) {
-    const electronProcess = cp.spawn(require('electron').toString(), [main], {
-      env: {
-        SOCKET_PORT: port,
-        NO_WINDOW: true,
-      },
-    });
+    const electronProcess = cp.spawn(
+      require('electron').toString(),
+      [`--require ${require.resolve('./main_hmr.js')}`, main],
+      {
+        env: {
+          SOCKET_PORT: port,
+          NO_WINDOW: true,
+        },
+      }
+    );
     this.electronProcess = electronProcess;
     this.electronProcess.stdout.on('data', e => {
       console.log(e.toString());
