@@ -12,7 +12,7 @@ if (process.env.SOCKET_PORT) {
 
   socket.on('data', message => {
     if (message === 'exit') {
-      app.exit(100);
+      process.exit(100);
     }
   });
 }

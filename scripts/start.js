@@ -13,6 +13,7 @@ class ElectronManager {
       require('electron').toString(),
       [`--require ${require.resolve('./main_hmr.js')}`, main],
       {
+        shell: true,
         env: {
           SOCKET_PORT: port,
           NO_WINDOW: true,
