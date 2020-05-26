@@ -1,6 +1,4 @@
-const { connect } = require('net');
-
-console.log('use main hmr');
+import { connect } from 'net';
 
 if (process.env.SOCKET_PORT) {
   const socket = connect({
@@ -10,7 +8,7 @@ if (process.env.SOCKET_PORT) {
     socket.setEncoding('utf-8');
   });
 
-  socket.on('data', message => {
+  socket.on('data', (message: string) => {
     if (message === 'exit') {
       process.exit(100);
     }
