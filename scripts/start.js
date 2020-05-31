@@ -6,7 +6,6 @@ const net = require('net');
 const dist = join(__dirname, '..', 'dist');
 const main = join(dist, 'main.bundle.js');
 const { startRender } = require('./lib/renderer');
-console.log(require.resolve('./lib/main_hmr'));
 class ElectronManager {
   start({ port }) {
     const electronProcess = cp.spawn(
