@@ -6,7 +6,7 @@
   "scripts": {
     "copy_package_json": "node scripts/copy_package_json.js",
     "build:action": "yarn ncc build actions/release/src/index.js -o actions/release/dist",
-    "start": "node scripts/start.js",
+    "start": "node scripts/lib/start.js ",
     "postinstall": "npm run copy_package_json electron && npm run build:scripts && electron-builder install-app-deps",
     "build:scripts": "rimraf scripts/lib && yarn tsc --build tsconfig.scripts.json",
     "build": "concurrently \"yarn build:main\" \"yarn build:renderer\"",
@@ -142,7 +142,7 @@
     "tsconfig-paths": "^3.7.0",
     "tslint": "^5.12.0",
     "typescript": "^3.7.2",
-    "umi": "^3.1.4",
+    "umi": "^3.2.3",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
   }
