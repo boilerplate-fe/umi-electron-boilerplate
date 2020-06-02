@@ -1,6 +1,6 @@
 import { fork } from 'child_process';
 
-const umiDev = require.resolve('umi/lib/forkedDev');
+const umiDev = require.resolve('./render/dev');
 
 interface StartRenderProps {
   cwd: string;
@@ -14,6 +14,7 @@ export function startRender(argv: StartRenderProps) {
   rendererEnv.APP_ROOT = argv.APP_ROOT;
   rendererEnv.PORT = argv.port;
   rendererEnv.BROWSER = argv.BROWSER;
+  rendererEnv.NODE_ENV = 'development';
   const renderProgress = fork(umiDev, [], {
     cwd: argv.cwd,
     env: rendererEnv,
