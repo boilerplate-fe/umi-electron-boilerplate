@@ -19,9 +19,13 @@ export function startRender(argv: StartRenderProps) {
     env: rendererEnv,
     silent: true,
   });
-  renderProgress.on('message', (e: { type: string }) => {
+  let port = 0;
+  renderProgress.on('message', (e: { type: string; port: number }) => {
     if (e.type === 'DONE') {
-      console.log('umi server start');
+      console.log(`umi server start http://localhost:${port}`);
+    }
+    if (e.type === 'UPDATE_PORT') {
+      port = e.port;
     }
   });
 
