@@ -5,7 +5,7 @@ class Service extends CoreService {
     super({
       ...opts,
       presets: [require.resolve('@umijs/preset-built-in')],
-      plugins: [],
+      plugins: [require.resolve('./reload')],
     });
   }
 }

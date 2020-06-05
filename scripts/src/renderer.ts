@@ -18,7 +18,7 @@ export function startRender(argv: StartRenderProps) {
   const renderProgress = fork(umiDev, [], {
     cwd: argv.cwd,
     env: rendererEnv,
-    silent: true,
+    // silent: true,
   });
   let port = 0;
   renderProgress.on('message', (e: { type: string; port: number }) => {
@@ -30,7 +30,10 @@ export function startRender(argv: StartRenderProps) {
     }
   });
 
-  return () => {
-    renderProgress.kill('SIGINT');
+  return {
+    exit: () => {
+      renderProgress.kill('SIGINT');
+    },
+    cp: renderProgress,
   };
 }

@@ -5,7 +5,7 @@ import { ImagePHash } from 'root/base/node/imagePHash';
 export class TestService {
   @Get('/hello')
   async hello() {
-    return `Hello World`;
+    return `Hello World100000`;
   }
 
   @Get('/imagePHash')

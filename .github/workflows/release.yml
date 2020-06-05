@@ -11,19 +11,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - uses: actions/setup-node@master
-        with:
-          node-version: '10.x'
-      - name: Install Dependencies
-        run: |
-          npm install
-      - name: Build Project
-        run: npm run build
       - name: Release Mac Version
         run: npm run release:mac
       - name: Create Release
         id: create_release
-        uses: ./actions/release
+        uses: webclipper/create-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
