@@ -5,7 +5,6 @@
   "main": "dist/main.bundle.js",
   "scripts": {
     "copy_package_json": "node scripts/copy_package_json.js",
-    "build:action": "yarn ncc build actions/release/src/index.js -o actions/release/dist",
     "start": "node scripts/lib/start.js ",
     "postinstall": "npm run copy_package_json electron && npm run build:scripts && electron-builder install-app-deps",
     "build:scripts": "rimraf scripts/lib && yarn tsc --build tsconfig.scripts.json",
@@ -51,7 +50,6 @@
     "@ant-design/icons": "^4.0.0-rc.0",
     "@shihengtech/hooks": "^0.0.6",
     "@umijs/plugin-antd": "^0.5.1",
-    "@zeit/ncc": "^0.22.0",
     "antd": "^4.1.0",
     "babel-polyfill": "^6.26.0",
     "cheerio": "^1.0.0-rc.3",
