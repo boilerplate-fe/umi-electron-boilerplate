@@ -18,7 +18,6 @@ const basementPackageJSON = {
   description,
   dependencies: {
     log4js: '^6.2.1',
-    sharp: '^0.25.2',
     sqlite3: '^4.1.1',
     multer: '^1.4.2',
     'class-transformer': '^0.2.3',

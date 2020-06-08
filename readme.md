@@ -7,4 +7,4 @@
 
 ## 公告
 
-正在开发中，乐意关注 [eumi](https://github.com/diamondYuan/eumi).
+正在开发中，欢迎关注 [eumi](https://github.com/diamondYuan/eumi).
