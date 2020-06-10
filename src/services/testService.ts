@@ -1,15 +1,9 @@
-import { Get, JsonController, QueryParams } from 'routing-controllers';
-import { ImagePHash } from 'root/base/node/imagePHash';
+import { Get, JsonController } from 'routing-controllers';
 
 @JsonController('/TestService')
 export class TestService {
   @Get('/hello')
   async hello() {
     return `Hello World100000`;
-  }
-
-  @Get('/imagePHash')
-  async imagePHash(@QueryParams({ parse: true }) query: { path: string }) {
-    return ImagePHash.getImagePHash(query.path);
   }
 }
