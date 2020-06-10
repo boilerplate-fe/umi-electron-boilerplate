@@ -14,7 +14,6 @@ const commonConfig = {
   externals: [
     {
       log4js: `require('log4js')`,
-      sharp: `require('sharp')`,
       sqlite3: `require('sqlite3')`,
       express: `require('express')`,
       encoding: `require('encoding')`,
