@@ -39,13 +39,6 @@ const commonConfig = {
         exclude: /node_modules/,
         loader: 'ts-loader',
       },
-      {
-        test: /\.(jpg|png|svg|ico|icns)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[path][name].[ext]',
-        },
-      },
     ],
   },
 };
