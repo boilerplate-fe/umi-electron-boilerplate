@@ -59,9 +59,9 @@ class ElectronManager {
   server.listen(SOCKET_PORT);
   const { cp } = startRender({
     cwd: path.join(__dirname, '../..'),
+    APP_ROOT: 'src/renderer',
     port: 8888,
     BROWSER: 'NONE',
-    APP_ROOT: 'src/renderer',
   });
   let electronManager: ElectronManager;
   build({

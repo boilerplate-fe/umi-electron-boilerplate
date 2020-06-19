@@ -1,22 +1,12 @@
 import { chalk, yParser } from '@umijs/utils';
 import { Service } from './ServiceWithBuiltIn';
-import { isAbsolute, join } from 'path';
+import getCwd from './getCwd';
 
 const args = yParser(process.argv.slice(2));
 
 (async () => {
   try {
-    const cwd = (() => {
-      let cwd = process.cwd();
-      if (process.env.APP_ROOT) {
-        // avoid repeat cwd path
-        if (!isAbsolute(process.env.APP_ROOT)) {
-          return join(cwd, process.env.APP_ROOT);
-        }
-        return process.env.APP_ROOT;
-      }
-      return cwd;
-    })();
+    const cwd = getCwd();
     const service = new Service({
       cwd: cwd,
     });
