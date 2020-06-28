@@ -1,13 +1,4 @@
-import { ILoggerService } from 'root/services/log/common/log';
-import { Container } from 'typedi';
-import 'reflect-metadata';
 import { app, BrowserWindow } from 'electron';
-import { start } from './server';
-import { dev } from 'root/base/common/platform';
-import { LoggerService } from 'root/services/log/node/logManager';
-
-const logger = new LoggerService('main');
-Container.set(ILoggerService, logger);
 
 let mainWindow: Electron.BrowserWindow | null;
 
@@ -28,8 +19,6 @@ async function createWindow(): Promise<void> {
 }
 
 app.on('ready', async () => {
-  logger.info('app ready');
-  await start(!dev);
   if (!process.env.NO_WINDOW) {
     await createWindow();
   }

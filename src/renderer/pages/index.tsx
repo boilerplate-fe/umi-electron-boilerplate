@@ -1,8 +1,10 @@
 import React from 'react';
-import { useFetch } from '@shihengtech/hooks';
-import { extend } from 'umi-request';
+import { Button } from 'antd';
 
 export default () => {
-  const request = useFetch(() => extend({}).get('/api/TestService/hello'), []);
-  return <div style={{ padding: 20 }}>{request.data}</div>;
+  return (
+    <div style={{ padding: 20 }}>
+      <Button>Hello World</Button>
+    </div>
+  );
 };

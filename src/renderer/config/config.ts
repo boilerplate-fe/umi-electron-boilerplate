@@ -11,15 +11,7 @@ export default defineConfig({
   routes: [
     {
       path: '/',
-      component: '../layouts/index',
       routes: [{ path: '/', component: './index' }],
     },
   ],
-  proxy: {
-    '/api': {
-      target: 'http://localhost:8887',
-      changeOrigin: true,
-      pathRewrite: { '^/api': '/api' },
-    },
-  },
 });
