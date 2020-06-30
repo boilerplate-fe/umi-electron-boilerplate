@@ -57,7 +57,7 @@ class ElectronManager {
     });
   });
   server.listen(SOCKET_PORT);
-  const { cp } = startRender({
+  const send = startRender({
     cwd: path.join(__dirname, '../..'),
     APP_ROOT: 'src/renderer',
     port: 8888,
@@ -93,7 +93,7 @@ class ElectronManager {
         if (socket) {
           socket.write('exit');
         }
-        cp.send({ type: 'hmr' });
+        send({ type: 'hmr' });
       }
     },
   });

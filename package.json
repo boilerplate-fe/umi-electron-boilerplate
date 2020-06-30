@@ -5,7 +5,8 @@
   "main": "dist/main.bundle.js",
   "scripts": {
     "copy_package_json": "node scripts/copy_package_json.js",
-    "start": "node scripts/lib/start.js",
+    "start": "electron dist/main.bundle.js",
+    "dev": "node scripts/lib/start.js",
     "postinstall": "npm run copy_package_json electron && npm run build:scripts && electron-builder install-app-deps",
     "build:scripts": "rimraf scripts/lib && yarn tsc --build tsconfig.scripts.json",
     "build": "node scripts/lib/build.js",

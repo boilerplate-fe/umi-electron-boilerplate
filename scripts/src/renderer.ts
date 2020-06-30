@@ -1,4 +1,4 @@
-import { fork } from 'child_process';
+import { fork, ChildProcess, Serializable } from 'child_process';
 
 const umiDev = require.resolve('./render/dev');
 
@@ -15,25 +15,28 @@ export function startRender(argv: StartRenderProps) {
   rendererEnv.PORT = argv.port;
   rendererEnv.BROWSER = argv.BROWSER;
   rendererEnv.NODE_ENV = 'development';
-  const renderProgress = fork(umiDev, [], {
-    cwd: argv.cwd,
-    env: rendererEnv,
-    // silent: true,
-  });
-  let port = 0;
-  renderProgress.on('message', (e: { type: string; port: number }) => {
-    if (e.type === 'DONE') {
-      console.log(`umi server start http://localhost:${port}`);
-    }
-    if (e.type === 'UPDATE_PORT') {
-      port = e.port;
-    }
-  });
-
-  return {
-    exit: () => {
-      renderProgress.kill('SIGINT');
-    },
-    cp: renderProgress,
+  let renderProgress: ChildProcess;
+  function start() {
+    renderProgress = fork(umiDev, [], {
+      cwd: argv.cwd,
+      env: rendererEnv,
+    });
+    let port = 0;
+    renderProgress.on('message', (e: { type: string; port: number }) => {
+      if (e.type === 'DONE') {
+        console.log(`umi server start http://localhost:${port}`);
+      }
+      if (e.type === 'RESTART') {
+        renderProgress.kill();
+        start();
+      }
+      if (e.type === 'UPDATE_PORT') {
+        port = e.port;
+      }
+    });
+  }
+  start();
+  return (message: Serializable) => {
+    renderProgress.send(message);
   };
 }
