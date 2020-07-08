@@ -5,7 +5,6 @@ export default defineConfig({
   outputPath: `../../dist/renderer`,
   publicPath: './',
   title: 'umi-electron-boilerplate',
-  plugins: ['@umijs/plugin-antd'],
   dva: false,
   antd: {
     dark: true,

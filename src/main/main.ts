@@ -52,7 +52,7 @@ async function createWindow(): Promise<void> {
 }
 
 app.on('ready', async () => {
-  if (!process.env.NO_WINDOW) {
+  if (process.env.NODE_ENV !== 'development') {
     await createWindow();
   }
 });
