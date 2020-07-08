@@ -21,7 +21,7 @@
     "src",
     "**/src/**/*.ts",
     "**/src/**/*.tsx",
-    "webpack.config.js",
+    "build/webpack.main.config.js",
     "jest.config.js",
     "**/actions/**/*.js",
     "**/scripts/**/*.js"

@@ -1,0 +1,24 @@
+{
+  "electronDownload": {
+    "mirror": "https://cdn.npm.taobao.org/dist/electron/"
+  },
+  "artifactName": "umi-electron-boilerplate.${ext}",
+  "appId": "im.umi-electron-boilerplate",
+  "productName": "umi-electron-boilerplate",
+  "directories": {
+    "app": "./dist",
+    "output": "./out/"
+  },
+  "win": {
+    "target": "nsis",
+    "asar": true
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": false,
+    "allowElevation": true,
+    "allowToChangeInstallationDirectory": true,
+    "runAfterFinish": false
+  },
+  "buildVersion": "0.0.2"
+}

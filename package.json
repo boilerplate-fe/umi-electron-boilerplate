@@ -4,58 +4,21 @@
   "description": "umi-electron-boilerplate",
   "main": "dist/main.bundle.js",
   "scripts": {
-    "copy_package_json": "node scripts/copy_package_json.js",
-    "start": "electron dist/main.bundle.js",
-    "dev": "node scripts/lib/start.js",
-    "postinstall": "npm run copy_package_json electron && npm run build:scripts && electron-builder install-app-deps",
-    "build:scripts": "rimraf scripts/lib && yarn tsc --build tsconfig.scripts.json",
-    "build": "node scripts/lib/build.js",
-    "test": "jest",
+    "postinstall": "electron-builder install-app-deps",
+    "start": "eumi start",
+    "dev": "eumi dev",
+    "build": "eumi build",
     "release:win": "electron-builder build --win --x64 -p never",
     "release:mac": "electron-builder build --mac --x64 -p never",
-    "pack:win": "node scripts/pack.js",
     "lint": "eslint --ext .js,.ts,.tsx ."
   },
-  "build": {
-    "electronDownload": {
-      "mirror": "https://cdn.npm.taobao.org/dist/electron/"
-    },
-    "artifactName": "umi-electron-boilerplate.${ext}",
-    "appId": "im.umi-electron-boilerplate",
-    "productName": "umi-electron-boilerplate",
-    "directories": {
-      "app": "./dist",
-      "output": "./out/"
-    },
-    "win": {
-      "target": "nsis",
-      "asar": true
-    },
-    "nsis": {
-      "oneClick": false,
-      "perMachine": false,
-      "allowElevation": true,
-      "allowToChangeInstallationDirectory": true,
-      "runAfterFinish": false
-    },
-    "buildVersion": "0.0.2"
-  },
   "dependencies": {
-    "umi": "^3.2.6",
     "@umijs/plugin-antd": "^0.6.0"
   },
   "devDependencies": {
-    "compressing": "^1.5.0",
     "@diamondyuan/eslint-config-react-typescript": "^7.0.1",
-    "@types/jest": "^25.1.3",
-    "@types/koa": "^2.0.52",
-    "@types/koa-bodyparser": "^4.3.0",
-    "@types/koa-router": "^7.0.42",
-    "@types/koa-static": "^4.0.1",
     "@types/react": "^16.7.18",
     "@types/react-dom": "^16.0.11",
-    "@types/react-router": "^4.4.3",
-    "@types/react-router-dom": "^4.3.1",
     "@typescript-eslint/eslint-plugin": "^2.19.0",
     "@typescript-eslint/parser": "^2.19.0",
     "babel-eslint": "^10.0.3",
@@ -68,15 +31,10 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.2.0",
-    "get-port": "^5.1.1",
-    "jest": "^25.1.0",
+    "eumi": "^0.0.2",
     "prettier": "^1.19.1",
-    "rimraf": "^3.0.2",
-    "ts-jest": "^25.2.1",
     "ts-loader": "^6.2.2",
-    "tsconfig-paths": "^3.7.0",
     "typescript": "^3.7.2",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
+    "umi": "^3.2.8"
   }
 }

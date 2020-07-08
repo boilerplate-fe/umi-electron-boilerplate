@@ -1,0 +1,10 @@
+{
+  "name": "umi-electron-boilerplate",
+  "version": "0.0.12",
+  "description": "umi-electron-boilerplate",
+  "main": "./main.bundle.js",
+  "postinstall": "electron-builder install-app-deps",
+  "scripts": {
+    "start": "electron ./main.bundle.js"
+  }
+}
