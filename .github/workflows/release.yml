@@ -15,7 +15,7 @@ jobs:
         run: npm run release:mac
       - name: Create Release
         id: create_release
-        uses: web-clipper/create-release@master
+        uses: webclipper/create-release@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -61,7 +61,7 @@ jobs:
       - name: Create Release
         id: create_release
         continue-on-error: true
-        uses: web-clipper/create-release@master
+        uses: webclipper/create-release@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
