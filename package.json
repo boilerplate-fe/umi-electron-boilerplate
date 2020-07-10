@@ -13,7 +13,8 @@
     "lint": "eslint --ext .js,.ts,.tsx ."
   },
   "dependencies": {
-    "@umijs/plugin-antd": "^0.6.0"
+    "@umijs/plugin-antd": "^0.6.0",
+    "react": "^16.13.1"
   },
   "devDependencies": {
     "@diamondyuan/eslint-config-react-typescript": "^7.0.1",
@@ -31,10 +32,10 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.2.0",
-    "eumi": "^0.0.4",
+    "eumi": "^0.0.5",
     "prettier": "^1.19.1",
     "ts-loader": "^6.2.2",
     "typescript": "^3.7.2",
-    "umi": "^3.2.8"
+    "umi": "^3.2.9"
   }
 }
