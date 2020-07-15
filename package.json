@@ -32,7 +32,7 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.2.0",
-    "eumi": "^0.0.5",
+    "eumi": "^0.0.6",
     "prettier": "^1.19.1",
     "ts-loader": "^6.2.2",
     "typescript": "^3.7.2",
