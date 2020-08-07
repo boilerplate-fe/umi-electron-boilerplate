@@ -8,7 +8,7 @@
     "module": "ESNext",
     "paths": {
       "root/*": ["src/*"],
-      "@@/*": ["src/.umi/*"]
+      "@@/*": ["src/renderer.umi/*"]
     },
     "moduleResolution": "node",
     "noImplicitAny": true,
